@@ -1,10 +1,11 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from flask_cors import CORS
 import joblib
 import pandas as pd
 
 app = FastAPI()
-
+CORS(app)
 # Load model and encoder
 model = joblib.load("model.pkl")
 risk_encoder = joblib.load("risk_label_encoder.pkl")
